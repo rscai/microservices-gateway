@@ -1,0 +1,24 @@
+server:
+  port: 9101
+spring:
+  application:
+    name: gateway
+  cloud:
+    compatibility-verifier:
+      enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      forwarded:
+        enabled: true
+      x-forwarded:
+        forEnabled: true
+        portEnabled: true
+        prefixEnabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+
