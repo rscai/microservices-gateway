@@ -17,6 +17,12 @@ spring:
         forEnabled: true
         portEnabled: true
         prefixEnabled: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedHeaders: '*'
+            allowedMethods: '*'
 eureka:
   client:
     serviceUrl:
