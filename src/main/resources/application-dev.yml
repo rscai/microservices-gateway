@@ -14,6 +14,7 @@ spring:
       forwarded:
         enabled: true
       x-forwarded:
+        enabled: true
         forEnabled: true
         portEnabled: true
         prefixEnabled: true
