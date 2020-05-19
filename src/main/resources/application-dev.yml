@@ -24,8 +24,27 @@ spring:
             allowedOrigins: '*'
             allowedHeaders: '*'
             allowedMethods: '*'
+      default-filters:
+        - TokenRelay
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: uaa
+            client-id: gateway
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://localhost:9101/login/oauth2/code/{registrationId}"
+            scope: uaa.user,openid,profile,email,catalog.read,catalog.write,inventory.read,inventory.write,order.use,order.operate
+        provider:
+          uaa:
+            authorization-uri: http://localhost:9103/uaa/oauth/authorize
+            token-uri: http://localhost:9103/uaa/oauth/token
+            user-info-uri: http://localhost:9103/uaa/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: http://localhost:9103/uaa/token_keys
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:9001/eureka/
-

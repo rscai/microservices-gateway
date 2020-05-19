@@ -1,0 +1,18 @@
+= Gateway
+
+== Dependency Setup
+
+=== UAA
+
+[source, shell]
+....
+cd uaa
+docker build - < Dockerfile
+....
+
+== Run
+
+[source, shell]
+....
+./gradlew bootRun -Dspring.profiles.active=dev
+....
